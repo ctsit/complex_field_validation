@@ -18,6 +18,7 @@ class ExternalModule extends AbstractExternalModule {
      * @inheritdoc
      */
     function redcap_data_entry_form_top($project_id, $record, $instrument, $event_id, $group_id) {
+        $this->includeJs('js/complexFieldValidationHelper.js');
     }
 
     /**
