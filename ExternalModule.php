@@ -17,9 +17,16 @@ class ExternalModule extends AbstractExternalModule {
     /**
      * @inheritdoc
      */
-    function redcap_data_entry_form_top($project_id, $record = null, $instrument, $event_id, $group_id = null) {
-        if (empty($record)) {
-            return;
-        }
+    function redcap_data_entry_form_top($project_id, $record, $instrument, $event_id, $group_id) {
+    }
+
+    /**
+     * Includes a local JS file.
+     *
+     * @param string $path
+     *   The relative path to the js file.
+     */
+    protected function includeJs($path) {
+        echo '<script src="' . $this->getUrl($path) . '"></script>';
     }
 }
