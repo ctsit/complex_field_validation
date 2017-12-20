@@ -24,6 +24,9 @@ $('document').ready(function() {
         if ( matches.length == 0 ) {
           $(this).trigger( "original", original );
         }
+        else{
+          element.style.backgroundColor="white";
+        }
       }).on( "original", original );
     });
 
