@@ -1,0 +1,20 @@
+{
+    "name": "Complex Field Validation",
+    "namespace": "FieldNotesDisplay\\ExternalModule",
+    "description": "ToDo",
+    "permissions": [
+        "redcap_data_entry_form_top"
+    ],
+    "authors": [
+        {
+            "name": "Taeber Rapczak",
+            "email": "taeber@ufl.edu",
+            "institution": "University of Florida - CTSI"
+        },
+        {
+            "name": "Marly Cormar",
+            "email": "marlycormar@ufl.edu",
+            "institution": "University of Florida - CTSI"
+        }
+    ]
+}
