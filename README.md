@@ -15,7 +15,7 @@ Once the module is activated on a project, you may include values outside the pr
 
 For example, if the question were something like "In which month was the subject born?" The field note could read "1-12, or 88 if unknown." Simply use the 1-12 range and decorate additional valid options in the Note like this:
 
-    1-12, or <span class=valid>88</span> if unknown.
+    1-12, or <span class="valid">88</span> if unknown.
 
 You may include as many additional values as you need. As an illustration, the configuration below will allow the user to enter either 95 or 96 although both values are not in the preestablished range of 1-12.
 
