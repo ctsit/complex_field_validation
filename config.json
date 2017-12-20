@@ -1,6 +1,6 @@
 {
     "name": "Complex Field Validation",
-    "namespace": "FieldNotesDisplay\\ExternalModule",
+    "namespace": "ComplexFieldValidation\\ExternalModule",
     "description": "ToDo",
     "permissions": [
         "redcap_data_entry_form_top"
