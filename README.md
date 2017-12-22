@@ -1,5 +1,7 @@
 # REDCap Complex Field Validation
-Allows for the addition of valid options outside of the min-max range for a REDCap form field.
+
+A REDCap Module that allows for the addition of valid options outside of the min-max range for a REDCap form field with number validation.
+
 
 ## Prerequisites
 - [REDCap Modules](https://github.com/vanderbilt/redcap-external-modules)
@@ -19,4 +21,4 @@ For example, if the question were something like "In which month was the subject
 
 You may include as many additional values as you need. As an illustration, the configuration below will allow the user to enter either 95 or 96 although both values are not in the preestablished range of 1-12.
 
-	1-12, or (<span class="valid">95</span> if unknown, <span class="valid">96</span> if prefer not to answer)
+    1-12, or (<span class="valid">95</span> if unknown, <span class="valid">96</span> if prefer not to answer)

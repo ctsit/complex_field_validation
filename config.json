@@ -1,7 +1,7 @@
 {
     "name": "Complex Field Validation",
     "namespace": "ComplexFieldValidation\\ExternalModule",
-    "description": "Finds additional valid options outside of min-max ranges. If the user enters a value not found in the list of additional valid options, the original REDCap validation is called. See the complete <b><a href='https://github.com/ctsit/complex_field_validation'>documentation</a></b> at <a href='https://github.com/ctsit/complex_field_validation'>https://github.com/ctsit/complex_field_validation</a>",
+    "description": "Allow for the addition of valid options outside of the min-max range for a REDCap form field with number validation. See the complete <b><a href='https://github.com/ctsit/complex_field_validation' target='_blank'>documentation</a></b> at <a href='https://github.com/ctsit/complex_field_validation' target='_blank'>https://github.com/ctsit/complex_field_validation</a>",
     "permissions": [
         "redcap_data_entry_form_top"
     ],
@@ -15,6 +15,15 @@
             "name": "Marly Cormar",
             "email": "marlycormar@ufl.edu",
             "institution": "University of Florida - CTSI"
+        },
+        {
+            "name": "Philip Chase",
+            "email": "pbc@ufl.edu",
+            "institution": "University of Florida - CTSI"
         }
-    ]
+    ],
+    "compatibility": {
+        "redcap-version-min": "8.0.3",
+        "redcap-version-max": ""
+   }
 }
