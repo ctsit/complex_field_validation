@@ -8,6 +8,7 @@ namespace ComplexFieldValidation\ExternalModule;
 
 use ExternalModules\AbstractExternalModule;
 use ExternalModules\ExternalModules;
+use Form;
 
 /**
  * ExternalModule class for Complex Field Validation.
@@ -30,6 +31,8 @@ class ExternalModule extends AbstractExternalModule {
         }
     }
 
+
+
     /**
      * Includes a local JS file.
      *
@@ -38,5 +41,27 @@ class ExternalModule extends AbstractExternalModule {
      */
     protected function includeJs($path) {
         echo '<script src="' . $this->getUrl($path) . '"></script>';
+    }
+
+
+    /**
+     * Returns the assigned value to
+     * a given action tag.
+     *
+     * @param string $path
+     *   The action tag name.
+     */
+    protected function getActionTagValue($name) {
+        global $Proj;
+        foreach (array_keys($Proj->forms[$_GET['page']]['fields']) as $field_name) {
+
+            $field_info = $Proj->metadata[$field_name];
+
+            if ($display_mode = Form::getValueInActionTag($field_info['misc'], $name)) {
+                break;
+            }
+        }
+
+        return $display_mode;
     }
 }
