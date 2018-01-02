@@ -22,6 +22,15 @@ class ExternalModule extends AbstractExternalModule {
     }
 
     /**
+     * @inheritdoc
+     */
+    function redcap_every_page_top($project_id) {
+        if (PAGE == 'Design/online_designer.php' && $project_id) {
+            $this->includeJs('js/helper.js');
+        }
+    }
+
+    /**
      * Includes a local JS file.
      *
      * @param string $path
