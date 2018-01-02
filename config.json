@@ -3,7 +3,7 @@
     "namespace": "ComplexFieldValidation\\ExternalModule",
     "description": "Allow for the addition of valid options outside of the min-max range for a REDCap form field with number validation. See the complete <b><a href='https://github.com/ctsit/complex_field_validation' target='_blank'>documentation</a></b> at <a href='https://github.com/ctsit/complex_field_validation' target='_blank'>https://github.com/ctsit/complex_field_validation</a>",
     "permissions": [
-        "redcap_data_entry_form_top"
+        "redcap_data_entry_form_top", "redcap_every_page_top"
     ],
     "authors": [
         {
