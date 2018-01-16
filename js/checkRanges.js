@@ -1,5 +1,3 @@
-
-
 $('document').ready(function() {
 /*
  * Finds additional valid options outside of min-max ranges.
@@ -11,8 +9,6 @@ $('document').ready(function() {
  * If the user enters a value not found in the list of additional valid
  * options, the original REDCap validation is called.
  */
-
-    //document.write(complex_field_validation_tag_values);
 
     function isValueOnRange(val) {
       var ranges = complex_field_validation_tag_values;
@@ -26,7 +22,6 @@ $('document').ready(function() {
             return true;
         }
       }
-      //document.write(ranges);
 
       return false;
     
@@ -41,9 +36,7 @@ $('document').ready(function() {
       element.onblur = null;
       $(element).on( "blur", function( evt ) {
         var val = this.value;
-
         var matches = additionalOptions.filter(function( index, element ) {
-          
           return $(element).text() == val || isValueOnRange(val);
         });
         if ( matches.length == 0 ) {
