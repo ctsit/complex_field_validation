@@ -23,7 +23,7 @@ $(document).ready(function() {
         }
 
         var tag_name = '@EXTRA-VALID-RANGES';
-        var descr = 'TODO.';
+        var descr = 'Adds valid options outside of the min-max range for a form field with number validation. For example, by adding the action tag @EXTRA-VALID-RANGES = "88,95-97,13,15-17,24", the user will be allowed to enter any of the following numbers (in addition to the range already defined): 88, 24, any number between 15 and 17, and any number between 95 and 97.';
 
         // Creating a new action tag row.
         var $new_action_tag = $default_action_tag.clone();
