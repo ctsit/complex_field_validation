@@ -29,11 +29,11 @@ class ExternalModule extends AbstractExternalModule {
             if (!$display_mode = Form::getValueInActionTag($field_info['misc'], $name)) {
                 continue;
             }
-            $field_tag_values = explode(",", $display_mode);
 
+            // Split the action value into an array of arrays
+            $field_tag_values = explode(",", $display_mode);
             for($i = 0; $i < sizeof($field_tag_values); $i++){
                 $field_tag_values[$i] = explode("-", $field_tag_values[$i]);
-
             }
 
             $this->sendVarToJS('complex_field_validation_tag_values', $field_tag_values);
@@ -45,6 +45,7 @@ class ExternalModule extends AbstractExternalModule {
      */
     function redcap_every_page_top($project_id) {
         if (PAGE == 'Design/online_designer.php' && $project_id) {
+            // Add action tag
             $this->includeJs('js/addTag.js');
         }
     }
