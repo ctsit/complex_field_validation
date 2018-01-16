@@ -21,20 +21,7 @@ class ExternalModule extends AbstractExternalModule {
     function redcap_data_entry_form_top($project_id, $record, $instrument, $event_id, $group_id) {
         $this->includeJs('js/complexFieldValidationHelper.js');
 
-
-    }
-
-    /**
-     * @inheritdoc
-     */
-    function redcap_every_page_top($project_id) {
-        if (PAGE == 'Design/online_designer.php' && $project_id) {
-            $this->includeJs('js/helper.js');
-        }
-
-        if($project_id){
-
-            global $Proj;
+        global $Proj;
 
             foreach (array_keys($Proj->forms[$_GET['page']]['fields']) as $field_name) {
                 $field_info = $Proj->metadata[$field_name];
@@ -44,26 +31,29 @@ class ExternalModule extends AbstractExternalModule {
                 }
 
                 // contains the values of the action tag @EXTRA-VALID-RANGES separated
-                // by commas, so if @EXTRA-VALID-RANGES="10,2-34,5", then $field_tag_value
+                // by commas, so if @EXTRA-VALID-RANGES="10,2-34,5", then $field_tag_values
                 // is an array with length 3 and values 10, 2-34, 5.
-                $field_tag_value = explode(",", $display_mode);
+                $field_tag_values = explode(",", $display_mode);
 
 
-                //TODO: validate tag values
+                //TODO: validate tag input values
 
+                for($i = 0; $i < sizeof($field_tag_values); $i++){
+                    $field_tag_values[$i] = explode("-", $field_tag_values[$i]);
 
-                foreach($field_tag_value as $current){
-                    
                 }
 
-                $tag_values[$field_name] = $display_mode;
-
+                $this->sendVarToJS($complex_field_validation_tag_values, $field_tag_values);
 
             }
+    }
 
-            //print_r($field_name);
-            $action_tag_values = explode(",", $display_mode);
-
+    /**
+     * @inheritdoc
+     */
+    function redcap_every_page_top($project_id) {
+        if (PAGE == 'Design/online_designer.php' && $project_id) {
+            $this->includeJs('js/helper.js');
         }
 
     }
@@ -100,5 +90,17 @@ class ExternalModule extends AbstractExternalModule {
         }
 
         return $display_mode;
+    }
+
+    /**
+     * Sends a PHP variable over to JS.
+     *
+     * @param string $name
+     *   Variable name
+     * @param var $value
+     *   Variable value
+     */
+    protected function sendVarToJS($name, $value) {
+        echo '<script>var '. $name .' = ' . json_encode($value) . ';</script>';
     }
 }
