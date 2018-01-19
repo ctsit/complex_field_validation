@@ -23,13 +23,13 @@ class ExternalModule extends AbstractExternalModule {
 
         global $Proj;
 
-        $actionTagName = "@EXTRA-VALID-RANGES";
+        $action_tag_name = "@EXTRA-VALID-RANGES";
 
         foreach (array_keys($Proj->forms[$_GET['page']]['fields']) as $field_name) {
             $field_info = $Proj->metadata[$field_name];
 
             
-            if (!$display_mode = Form::getValueInActionTag($field_info['misc'], $actionTagName)) {
+            if (!$display_mode = Form::getValueInActionTag($field_info['misc'], $action_tag_name)) {
                 continue;
             }
 
