@@ -39,6 +39,7 @@ class ExternalModule extends AbstractExternalModule {
                 $field_tag_values[$i] = explode("-", $field_tag_values[$i]);
             }
 
+            print_r($field_name);
             $this->sendVarToJS('complex_field_validation_tag_values', $field_tag_values);
         }
     }
@@ -49,7 +50,7 @@ class ExternalModule extends AbstractExternalModule {
     function redcap_every_page_top($project_id) {
         if (PAGE == 'Design/online_designer.php' && $project_id) {
             // Add action tag
-            $this->includeJs('js/addTag.js');
+            $this->includeJs('js/addTagToOnlineDesignerActionTagList.js');
         }
     }
 
