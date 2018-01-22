@@ -24,28 +24,28 @@ class ExternalModule extends AbstractExternalModule {
         global $Proj;
 
         $action_tag_name = "@EXTRA-VALID-RANGES";
-        $action_tags_values_per_field = array();
+        // Array holding the (field name, action-tag values) pairs
+        $action_tag_values_per_field = array();
 
         foreach (array_keys($Proj->forms[$_GET['page']]['fields']) as $field_name) {
             $field_info = $Proj->metadata[$field_name];
 
-            
             if (!$display_mode = Form::getValueInActionTag($field_info['misc'], $action_tag_name)) {
                 continue;
             }
 
-            // Split the action value into an array of arrays
+            // Split the action tag values into an array of arrays
             $field_tag_values = explode(",", $display_mode);
             for($i = 0; $i < sizeof($field_tag_values); $i++){
                 $field_tag_values[$i] = explode("-", $field_tag_values[$i]);
             }
 
-            $action_tags_values_per_field[$field_name] =  $field_tag_values;
+            $action_tag_values_per_field[$field_name] =  $field_tag_values;
         }
 
-        $this->sendVarToJS('actionTagsValuesPerField', $action_tags_values_per_field);
-
+        $this->sendVarToJS('actionTagValuesPerField', $action_tag_values_per_field);
     }
+
 
     /**
      * @inheritdoc
@@ -55,11 +55,7 @@ class ExternalModule extends AbstractExternalModule {
             // Add action tag
             $this->includeJs('js/addTagToOnlineDesignerActionTagList.js');
         }
-
-
     }
-
-
 
 
     /**
