@@ -24,6 +24,7 @@ class ExternalModule extends AbstractExternalModule {
         global $Proj;
 
         $action_tag_name = "@EXTRA-VALID-RANGES";
+        $action_tags_values_per_field = array();
 
         foreach (array_keys($Proj->forms[$_GET['page']]['fields']) as $field_name) {
             $field_info = $Proj->metadata[$field_name];
@@ -39,9 +40,11 @@ class ExternalModule extends AbstractExternalModule {
                 $field_tag_values[$i] = explode("-", $field_tag_values[$i]);
             }
 
-            print_r($field_name);
-            $this->sendVarToJS('complex_field_validation_tag_values', $field_tag_values);
+            $action_tags_values_per_field[$field_name] =  $field_tag_values;
         }
+
+        $this->sendVarToJS('actionTagsValuesPerField', $action_tags_values_per_field);
+
     }
 
     /**
@@ -52,7 +55,11 @@ class ExternalModule extends AbstractExternalModule {
             // Add action tag
             $this->includeJs('js/addTagToOnlineDesignerActionTagList.js');
         }
+
+
     }
+
+
 
 
     /**
