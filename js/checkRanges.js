@@ -10,8 +10,11 @@ $('document').ready(function() {
  * options, the original REDCap validation is called.
  */
 
-    function isValueOnRange(val) {
-      var ranges = complex_field_validation_tag_values;
+    function isValueOnRange(fieldName, val) {
+      var ranges = actionTagsValuesPerField[fieldName];
+
+      if(ranges == undefined) return false;
+
       for(i = 0; i < ranges.length; i++){
         if(ranges[i].length == 1){
           if(val == ranges[i][0])
@@ -22,9 +25,8 @@ $('document').ready(function() {
             return true;
         }
       }
-
+      
       return false;
-    
     }
 
     $( "input" ).filter(function( index, element ) {
