@@ -11,7 +11,7 @@ $('document').ready(function() {
  */
 
     function isValueOnRange(fieldName, val) {
-      var ranges = actionTagsValuesPerField[fieldName];
+      var ranges = actionTagValuesPerField[fieldName];
 
       if(ranges == undefined) return false;
 
@@ -25,7 +25,7 @@ $('document').ready(function() {
             return true;
         }
       }
-      
+
       return false;
     }
 
@@ -36,9 +36,9 @@ $('document').ready(function() {
     .each(function( index, element ) {
       var additionalOptions = $(element).siblings(".note").find('.valid');
       var actionTagAdditionOptions = $(element).siblings().andSelf().find("[name='age']"); 
-
       var original = element.onblur;
       element.onblur = null;
+
       $(element).on( "blur", function( evt ) {
         var val = this.value;
         var matches = additionalOptions.filter(function( index, element ) {
@@ -51,6 +51,7 @@ $('document').ready(function() {
         else{
           element.style.backgroundColor="white";
         }
+        
       }).on( "original", original );
     });
 });
