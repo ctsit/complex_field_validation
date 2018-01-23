@@ -1,5 +1,15 @@
 # Change Log
 All notable changes to the Complex Field Validation module will be documented in this file.
+This project adheres to [Semantic Versioning](http://semver.org/).
+
+## [1.1.0] - 2018-01-23
+### Added
+- Add @EXTRA-VALID-RANGE action tag that mimics functionality of the span in the field note (Marly)
+- Add help in online designer for @EXTRA-VALID-RANGE action tag (Marly)
+
+### Changed
+- Improve code readability (Marly)
+- Modify variable names to improve code readability and match code standards (Marly)
 
 
 ## [1.0] - 2018-01-02
